@@ -275,10 +275,14 @@
 </tr>
 <tr>
 <td width="168">
-<p>&nbsp;</p>
+<p>&nbsp;
+کلاس Order.java نقض SRP
+</p>
 </td>
 <td width="246">
-<p>&nbsp;</p>
+<p>&nbsp;
+
+</p>
 </td>
 <td width="284">
 <p>&nbsp;</p>
