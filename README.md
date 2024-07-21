@@ -161,7 +161,10 @@
 <p><strong>موارد تحقق</strong></p>
 </td>
 <td>
-<p>&nbsp;</p>
+<p>&nbsp;
+کلاس OrderService.java: از OCP پیروی می کند. این رابط اجازه می دهد تا انواع جدیدی از خدمات سفارش (به عنوان مثال، روش های پرداخت جدید) را بدون تغییر کد موجود اضافه کنیم.
+  کلاس های OnlineOrderService.java و OnSiteOrderService.java: با پیاده سازی رابط OrderService اصل OCP را رعایت می‌کنند.
+</p>
 </td>
 </tr>
 <tr>
@@ -169,7 +172,9 @@
 <p><strong>موارد نقض</strong></p>
 </td>
 <td>
-<p>&nbsp;</p>
+<p>&nbsp;
+مورد نقضی وجود ندارد.
+</p>
 </td>
 </tr>
 <tr>
@@ -181,7 +186,10 @@
 <p><strong>موارد تحقق</strong></p>
 </td>
 <td>
-<p>&nbsp;</p>
+<p>&nbsp;
+
+
+</p>
 </td>
 </tr>
 <tr>
@@ -189,7 +197,10 @@
 <p><strong>موارد نقض</strong></p>
 </td>
 <td>
-<p>&nbsp;</p>
+<p>&nbsp;
+کلاس OrderService.java اصل LSP را نقض می کند. متدها در زیر کلاس‌ها (OnlineOrderService و OnSiteOrderService) وقتی قابل اجرا نیستند، بدنه‌های خالی دارند، که در صورت فراخوانی آن متدها می‌تواند منجر به رفتار نادرست شود.
+  کلاس های OnlineOrderService.java وOnSiteOrderService.java نیز این اصل را به همان دلیل مشابه بالا نقض می‌کنند.
+</p>
 </td>
 </tr>
 <tr>
@@ -201,7 +212,10 @@
 <p><strong>موارد تحقق</strong></p>
 </td>
 <td>
-<p>&nbsp;</p>
+<p>&nbsp;
+
+  
+</p>
 </td>
 </tr>
 <tr>
@@ -209,7 +223,11 @@
 <p><strong>موارد نقض</strong></p>
 </td>
 <td>
-<p>&nbsp;</p>
+<p>&nbsp;
+
+کلاس OrderService.java اصل LSP را نقض می‌کند. این رابط پیاده سازی روش هایی را که توسط هر سرویسی استفاده نمی شود را اجبار می کند.
+
+</p>
 </td>
 </tr>
 <tr>
@@ -229,7 +247,10 @@
 <p><strong>موارد نقض</strong></p>
 </td>
 <td>
-<p>&nbsp;</p>
+<p>&nbsp;
+کلاس Main.java این اصل را نقض می‌کند. زیرا طبق این اصل ماژول های سطح بالا نباید به ماژول های سطح پایین وابسته باشند. ولی در اینجا کلاس Main به طور مستقیم به پیاده سازی OnlineOrderService و OnSiteOrderService بستگی دارد.
+
+</p>
 </td>
 </tr>
 </tbody>
