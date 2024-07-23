@@ -1,3 +1,5 @@
+package OrderHandlers;
+
 public class OrderTotalPriceCalculator {
 
     private static OrderTotalPriceCalculator instance;

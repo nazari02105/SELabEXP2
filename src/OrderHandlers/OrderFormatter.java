@@ -1,3 +1,5 @@
+package OrderHandlers;
+
 import java.util.stream.Collectors;
 
 public class OrderFormatter {

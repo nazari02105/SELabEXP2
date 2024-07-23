@@ -1,3 +1,5 @@
+package OrderHandlers;
+
 public class Food {
     String foodName;
     int price;
