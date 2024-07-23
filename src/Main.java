@@ -11,6 +11,8 @@ public class Main {
         OrderService orderService = null;
         String customerName;
         Order order;
+        OrderTotalPriceCalculator orderTotalPriceCalculator = OrderTotalPriceCalculator.getInstance();
+
         int customerAnswerForOrder=0;
         int customerAnswerForPaymentMethod=0;
 
@@ -48,9 +50,9 @@ public class Main {
         //Step3 : pay price
         System.out.println("Pay Price:");
         if(orderService instanceof OnlineOrderService){
-            orderService.onlineOrderPayment(order.getTotalPrice());
+            orderService.onlineOrderPayment(orderTotalPriceCalculator.calculateTotalPrice(order));
         } else if(orderService instanceof OnSiteOrderService){
-            orderService.onSiteOrderPayment(order.getTotalPrice());
+            orderService.onSiteOrderPayment(orderTotalPriceCalculator.calculateTotalPrice(order));
         }
 
         //Finally Print Bill

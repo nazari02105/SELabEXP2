@@ -14,11 +14,6 @@ public class Order {
         this.foods.add(food);
     }
 
-    public int getTotalPrice(){
-        int price= this.foods.stream().mapToInt(food -> food.price).sum();
-        return price;
-    }
-
     @Override
     public String toString() {
         String orders ="";
