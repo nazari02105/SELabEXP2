@@ -1,3 +1,7 @@
+import OrderHandlers.Food;
+import OrderHandlers.Order;
+import OrderHandlers.OrderFormatter;
+import OrderHandlers.OrderTotalPriceCalculator;
 import PaymentServices.OnSiteOrderService;
 import PaymentServices.OnlineOrderService;
 import PaymentServices.OrderService;
@@ -42,18 +46,18 @@ public class Main {
         customerAnswerForPaymentMethod = scanner.nextInt();
         if(customerAnswerForPaymentMethod==1){
             orderService = new OnlineOrderService();
-            orderService.onlineOrderRegister(customerName);
+            orderService.registerOrder(customerName);
         } else if(customerAnswerForPaymentMethod==2){
             orderService = new OnSiteOrderService();
-            orderService.onSiteOrderRegister(customerName);
+            orderService.registerOrder(customerName);
         }
 
         //Step3 : pay price
         System.out.println("Pay Price:");
         if(orderService instanceof OnlineOrderService){
-            orderService.onlineOrderPayment(orderTotalPriceCalculator.calculateTotalPrice(order));
+            orderService.processPayment(orderTotalPriceCalculator.calculateTotalPrice(order));
         } else if(orderService instanceof OnSiteOrderService){
-            orderService.onSiteOrderPayment(orderTotalPriceCalculator.calculateTotalPrice(order));
+            orderService.processPayment(orderTotalPriceCalculator.calculateTotalPrice(order));
         }
 
         //Finally Print Bill
