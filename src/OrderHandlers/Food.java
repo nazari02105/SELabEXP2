@@ -5,7 +5,7 @@ public class Food {
     int price;
     int quantity =1;
 
-    Food(String foodName, int foodPrice){
+    public Food(String foodName, int foodPrice){
         this.foodName = foodName;
         this.price = foodPrice;
     }
