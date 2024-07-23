@@ -14,12 +14,11 @@ public class Order {
         this.foods.add(food);
     }
 
-    @Override
-    public String toString() {
-        String orders ="";
-        for (Food food:this.foods) {
-            orders+= food.foodName + " -> " + food.price+"\n";
-        }
-        return "Customer : " + customerName + "\nOrders are : \n" + orders + "\nTotal Price : " + this.getTotalPrice();
+    public ArrayList<Food> getFoods() {
+        return foods;
+    }
+
+    public String getCustomerName() {
+        return customerName;
     }
 }

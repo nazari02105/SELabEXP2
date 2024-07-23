@@ -12,6 +12,7 @@ public class Main {
         String customerName;
         Order order;
         OrderTotalPriceCalculator orderTotalPriceCalculator = OrderTotalPriceCalculator.getInstance();
+        OrderFormatter orderFormatter = OrderFormatter.getInstance();
 
         int customerAnswerForOrder=0;
         int customerAnswerForPaymentMethod=0;
@@ -56,7 +57,7 @@ public class Main {
         }
 
         //Finally Print Bill
-        System.out.println(order);
+        System.out.println(orderFormatter.format(order, orderTotalPriceCalculator));
 
 
     }
