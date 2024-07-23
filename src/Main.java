@@ -1,3 +1,6 @@
+import CustomerServices.ProcessPaymentService;
+import CustomerServices.SelectOrderService;
+import CustomerServices.SelectPaymentMethod;
 import OrderHandlers.Food;
 import OrderHandlers.Order;
 import OrderHandlers.OrderFormatter;
@@ -12,57 +15,36 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner= new Scanner(System.in);
-        OrderService orderService = null;
         String customerName;
+
         Order order;
         OrderTotalPriceCalculator orderTotalPriceCalculator = OrderTotalPriceCalculator.getInstance();
         OrderFormatter orderFormatter = OrderFormatter.getInstance();
 
-        int customerAnswerForOrder=0;
-        int customerAnswerForPaymentMethod=0;
+        SelectOrderService selectOrderService;
+        SelectPaymentMethod selectPaymentMethod;
+        ProcessPaymentService processPaymentService;
+        OrderService paymentMethod;
 
         System.out.println("Enter Customer Name : ");
         customerName = scanner.nextLine();
         order = new Order(customerName);
 
         //Step 1 : Select Order Items
-        while (customerAnswerForOrder!=3){
-            System.out.println("For Ordering Sandwich enter 1.");
-            System.out.println("For Ordering Pizza enter 2.");
-            System.out.println("For submit your order enter 3");
-            customerAnswerForOrder = scanner.nextInt();
-
-            if(customerAnswerForOrder==1){
-                order.addItem(new Food("sandwich",1000));
-            } else if(customerAnswerForOrder==2){
-                order.addItem(new Food("pizza",2000));
-            }
-
-
-        }
+        selectOrderService = new SelectOrderService(scanner, order);
+        selectOrderService.selectOrders();
 
         //Step2 : Select Payment Method
-        System.out.println("Enter Your Payment Method (1 for online and 2 for on-site):");
-        customerAnswerForPaymentMethod = scanner.nextInt();
-        if(customerAnswerForPaymentMethod==1){
-            orderService = new OnlineOrderService();
-            orderService.registerOrder(customerName);
-        } else if(customerAnswerForPaymentMethod==2){
-            orderService = new OnSiteOrderService();
-            orderService.registerOrder(customerName);
-        }
+        selectPaymentMethod = new SelectPaymentMethod(scanner);
+        selectPaymentMethod.selectPaymentMethod();
+        paymentMethod = selectPaymentMethod.getPaymentMethod();
 
         //Step3 : pay price
-        System.out.println("Pay Price:");
-        if(orderService instanceof OnlineOrderService){
-            orderService.processPayment(orderTotalPriceCalculator.calculateTotalPrice(order));
-        } else if(orderService instanceof OnSiteOrderService){
-            orderService.processPayment(orderTotalPriceCalculator.calculateTotalPrice(order));
-        }
+        processPaymentService = new ProcessPaymentService(order, paymentMethod, orderTotalPriceCalculator);
+        processPaymentService.processPayment();
 
         //Finally Print Bill
         System.out.println(orderFormatter.format(order, orderTotalPriceCalculator));
-
 
     }
 
