@@ -110,7 +110,7 @@
 
 <tr>
 <td width="64">
-<p><strong>7</strong></p>
+<p><strong>۷</strong></p>
 </td>
 <td width="198">
 <p>OnlineOrderService</p>
@@ -125,7 +125,7 @@
 
 <tr>
 <td width="64">
-<p><strong>7</strong></p>
+<p><strong>۸</strong></p>
 </td>
 <td width="198">
 <p>ProcessPaymentService</p>
@@ -140,7 +140,7 @@
 
 <tr>
 <td width="64">
-<p><strong>7</strong></p>
+<p><strong>۹</strong></p>
 </td>
 <td width="198">
 <p>SelectOrderService</p>
@@ -155,7 +155,7 @@
 
 <tr>
 <td width="64">
-<p><strong>7</strong></p>
+<p><strong>۱۰</strong></p>
 </td>
 <td width="198">
 <p>SelectPaymentMethod</p>
@@ -170,7 +170,7 @@
 
 <tr>
 <td width="64">
-<p><strong>7</strong></p>
+<p><strong>۱۱</strong></p>
 </td>
 <td width="198">
 <p>Main</p>
